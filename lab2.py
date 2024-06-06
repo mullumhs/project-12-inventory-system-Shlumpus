@@ -11,6 +11,24 @@
 
 # Step 1: Import the Item class from lab1.py
 
+from lab1 import Item
+
+class Inventory:
+    def __init__(self):
+        self.items = []
+        
+    def add_item(self, name, price, quantity):
+        new = Item(name, price, quantity)
+        self.items.add(new)
+        
+    def remove_item(self, name):
+        for item in self.items:
+            if name == item.get_name():
+                self.items.remove(item)
+    
+    def update_item_price(self, price):
+        
+        
 
 
 
