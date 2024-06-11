@@ -10,10 +10,40 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 # Step 1: Import necessary classes (Item class from lab1, InventoryManager class from lab2)
-
+from lab1 import Item 
+from lab2 import ItemManager
 
 # Step 2: Define an add_item function that prompts the user for item details and adds the item to the inventory
-
+def add_item_ui(manager):
+    name = input("Please enter the name of the item: ")
+    price = input("Please enter the price of the item: ")
+    quantity = input("Please enter the quantity: ")
+        
+    item = Item(name, price, quantity)
+    if manager.add_item(item):
+        print("Item added successfully")
+    else:
+        print("Failed to add item")
+        
+def update_item_ui(manager):
+    name = input("Enter item name to update: ")
+    price = input("Enter new price: ")
+    if price:
+        price = float(price)
+    else:
+        price = None
+    if quantity:
+        quantity = int(quantity)
+    if manager.update_item_quantity(name, quantity):
+        print("Item update successfully")
+    else:
+        print("Failed to update yo price")
+        
+    
+    
+        
+    
+    
 
 # Step 3: Define an update_item function that prompts the user for item details and updates the item in the inventory
 

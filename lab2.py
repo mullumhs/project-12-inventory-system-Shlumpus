@@ -13,7 +13,7 @@
 
 from lab1 import Item
 
-class Inventory:
+class ItemManager:
     def __init__(self):
         self.items = []
         
@@ -27,10 +27,15 @@ class Inventory:
                 self.items.remove(item)
     
     def update_item_price(self, price):
-        
-        
+        for item in self.items:
+            if name == item.get_name and price == item.get_price():
+                item.set_price(new_price)
+                
+    def update_item_quantity(self, quantity):
+        for item in self.items:
+            if 
 
-
+def 
 
 
 # Step 2: Define the InventoryManager class as a facade to handle the inventory operations.
