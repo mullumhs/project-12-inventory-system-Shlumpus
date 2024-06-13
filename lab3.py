@@ -14,18 +14,15 @@ from lab1 import Item
 from lab2 import ItemManager
 
 # Step 2: Define an add_item function that prompts the user for item details and adds the item to the inventory
-def add_item_ui(manager):
+def add_item_ui(inventory):
     name = input("Please enter the name of the item: ")
     price = input("Please enter the price of the item: ")
     quantity = input("Please enter the quantity: ")
-        
     item = Item(name, price, quantity)
-    if manager.add_item(item):
-        print("Item added successfully")
-    else:
-        print("Failed to add item")
-        
-def update_item_ui(manager):
+    inventory.add_item(item)
+    
+    
+def update_item_ui(inventory):
     name = input("Enter item name to update: ")
     price = input("Enter new price: ")
     if price:
@@ -39,10 +36,11 @@ def update_item_ui(manager):
     else:
         print("Failed to update yo price")
         
+def remove_item_ui(inventory):
+    name = input("What item would you like to remove: ")
+    inventory.remove_item(name)
     
-    
-        
-    
+def display_item_ui(inventory):
     
 
 # Step 3: Define an update_item function that prompts the user for item details and updates the item in the inventory
@@ -56,10 +54,15 @@ def update_item_ui(manager):
 
 def main():
     # Step 6: Initialise an instance of InventoryManager
+    inventory = ItemManager()
     
 
     # Step 7: Use the actions dictionary to map user input to the corresponding functions
-    actions = {}
+    actions = {
+        '1': add_item_ui,
+        '2': update_item_ui,
+        '3': remove_item_ui,
+        '4': display_item_ui,    }
     
     while True:
         print("\nInventory Management System")
@@ -72,10 +75,16 @@ def main():
         choice = input("Enter choice: ")
 
         # Step 8: Implement the logic to call the appropriate function based on user input
+        
+        
         # Exit the loop if the user chooses 5, otherwise display an error message for invalid choices
 
-
-        
+        if choice == '5':
+            print("Exiting Program")
+        elif choice in actions:
+            actions[choice](inventory)
+        else:
+            print("Invalid choice, please try again")
 
 if __name__ == "__main__":
     main()

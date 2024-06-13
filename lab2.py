@@ -28,20 +28,12 @@ class ItemManager:
     
     def update_item_price(self, price):
         for item in self.items:
-            if name == item.get_name and price == item.get_price():
+            if price == item.get_price():
                 item.set_price(new_price)
                 
-    def update_item_quantity(self, quantity):
-        for item in self.items:
-            if 
-
-def 
-
 
 # Step 2: Define the InventoryManager class as a facade to handle the inventory operations.
 # It should include methods to add, remove, update, and display items in the inventory.
-
-
 
 
 
